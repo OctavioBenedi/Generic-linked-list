@@ -79,12 +79,27 @@ int list_free(Generic_List_Node_t **list)
     while (node)
     {
         next_node=node->next;
-        free(node->data);
+        if(node->data != NULL)
+			free(node->data);
         free(node);
         node=next_node;
     }
     *list = NULL;
     return 0;
+}
+
+Generic_List_Node_t *get_head(Generic_List_Node_t *list)
+{
+	Generic_List_Node_t *node = list;
+    Generic_List_Node_t *head = NULL;
+    
+    while (node)
+    {
+		head = node;
+		node = node->next;
+	}	
+	
+	return head;
 }
 
 Generic_List_Node_t *list_find(Generic_List_Node_t *node, int(*func)(void*,void*), void *data)
