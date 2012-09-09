@@ -19,6 +19,7 @@ Generic_List_Node_t *list_insert_beginning(Generic_List_Node_t *list, void *data
 int list_remove(Generic_List_Node_t *list, Generic_List_Node_t *node);
 int list_foreach(Generic_List_Node_t *node, int(*func)(void*));
 int list_free(Generic_List_Node_t **list);
+Generic_List_Node_t *get_head(Generic_List_Node_t *list);
 Generic_List_Node_t *list_find(Generic_List_Node_t *node, int(*func)(void*,void*), void *data);
 
 
